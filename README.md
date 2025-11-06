@@ -68,10 +68,11 @@ Você descobrira a versão do chrome que esta usando exemplo:
 ```
 Resultado (exemplo):
 
+```Shell
 ProductVersion   FileVersion      FileName
 --------------   -----------      --------
 142.0.7444.60    142.0.7444.60    C:\Program Files\Google\Chrome\Application\chrome.exe
-
+```
 
 Outro método: Pelo próprio Chrome
 
@@ -102,6 +103,7 @@ VERSION/win64/chromedriver-win64.zip
 https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for- testing/142.0.7444.60/win64/chromedriver-win64.zip
 
 --> Exemplo para Chrome 140.0.7339.80:
+
 https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-
 testing/140.0.7339.80/win64/chrome driver-win64.zip
 
