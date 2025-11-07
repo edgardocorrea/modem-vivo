@@ -99,7 +99,7 @@ if (-not $args) {
         }
     }
     
-    # ==================== DETECÇÃO DE NAVEGADORES ====================
+    # ==================== VERIFICAÇÂO DE NAVEGADORES ====================
     
     function Get-ChromiumBrowser {
         Write-Step "Procurando navegadores Chromium instalados..."
@@ -140,7 +140,7 @@ if (-not $args) {
     function Get-ChromeDriverUrl {
         param([string]$ChromeVersion)
         
-        Write-Step "Consultando API do Chrome for Testing..."
+        Write-Step "Consultando API do Chrome para teste..."
         
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -487,7 +487,7 @@ if (-not $args) {
     Write-Header "Criando Atalho"
     
     $desktopPath = [Environment]::GetFolderPath("Desktop")
-    $shortcutPath = "$desktopPath\Modem VIVO Unlock.lnk"
+    $shortcutPath = "$desktopPath\Modem VIVO.lnk"
     
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($shortcutPath)
