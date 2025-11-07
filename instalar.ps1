@@ -555,7 +555,7 @@ if (-not $args) {
     Write-Host "│ Como Usar                                                 │" -ForegroundColor Yellow
     Write-Host "├───────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
     Write-Host "│ 1. Basta localizar o atalho na Área de Trabalho           │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clicar no atalho 'Modem VIVO'                          │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clicar no atalho  Modem VIVO                           │" -ForegroundColor Yellow
     Write-Host "│ 3. Executara navegador direto na pagina avançada do modem │" -ForegroundColor Yellow
     Write-Host "└───────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
