@@ -4,7 +4,7 @@ REM Evita problemas de encoding UTF-8 com caracteres especiais
 
 cd /d "%~dp0"
 
-echo Iniciando Modem VIVO Modo avançado...
+echo Iniciando Modem VIVO Modo avancado...
 echo.
 
 REM Executa o script PowerShell
