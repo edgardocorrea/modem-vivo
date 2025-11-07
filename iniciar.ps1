@@ -196,8 +196,8 @@ if ($passVal -match "sua-senha" -or $passVal -match "SUA_SENHA_AQUI") {
     Write-Host "│ Como configurar:                                        │" -ForegroundColor Yellow
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
     Write-Host "│ 1. Abra o arquivo: vars.js                              │" -ForegroundColor Yellow
-    Write-Host "│ 2. Localize a linha: const pass = `"sua-senha`";        │" -ForegroundColor Yellow
-    Write-Host "│ 3. Substitua por: const pass = `"SUA_SENHA_MODEM`";     │" -ForegroundColor Yellow
+    Write-Host "│ 2. Localize a linha: const pass = "sua-senha";          │" -ForegroundColor Yellow
+    Write-Host "│ 3. Substitua por: const pass = "SUA_SENHA_MODEM";       │" -ForegroundColor Yellow
     Write-Host "│ 4. A senha está na etiqueta na parte de baixo do modem  │" -ForegroundColor Yellow
     Write-Host "│ 5. Salve o arquivo e execute este script novamente      │" -ForegroundColor Yellow
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
