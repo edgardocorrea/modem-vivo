@@ -1,38 +1,29 @@
 ﻿/**
  * Configurações do Modem VIVO
  * 
- * IMPORTANTE: As credenciais são ofuscadas usando XOR (0x1f)
+ * IMPORTANTE:
  * Para alterar usuário/senha, edite os valores em texto claro
  * e a função messUserPass() em utils.js fará a conversão
  * 
  * Padrão:
  * IP = "192.168.15.1";   // IP do modem (ip padrão)
- * user = "admin";         // Usuário (admin)
+ * user = "admin";         // Usuário (admin padrão)
  * pass = "sua-senha";     // Senha (se encontra etiquetado no aparelho da vivo)
  */
 
-// Previne execução direta do arquivo
+// Proteção contra execução direta
 if (require.main === module) {
-    console.error("\n╔════════════════════════════════════════════╗");
-    console.error("║  ✗ ERRO: Execução Direta Não Permitida    ║");
-    console.error("╚════════════════════════════════════════════╝");
-    console.error("\n[ERRO] O arquivo vars.js é um módulo de configuração.");
-    console.error("[ERRO] Não deve ser executado diretamente!\n");
-    console.error("Execute corretamente:");
-    console.error("  → node index.js");
-    console.error("  → npm start");
-    console.error("  → iniciar.bat\n");
+    console.error("\n[ERRO] vars.js é um módulo, não execute diretamente!");
+    console.error("Use: node index.js ou iniciar.bat\n");
     process.exit(1);
 }
 
 const Utils = require("./utils");
 
-// IP do modem (padrão VIVO Fibra)
+// Configurações do modem
 const IP = "192.168.15.1";
-
-// Credenciais (ofuscadas)
 const user = "admin";
-const pass = "rpgrs65e"; // Senha ofuscada com XOR
+const pass = "sua-senha"; // ← Altere para senha do modem
 
 // Configuração do navegador
 const browser = "chrome";

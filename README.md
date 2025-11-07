@@ -15,7 +15,7 @@
 
 Este projeto foi inspirado no trabalho do [Izurii](https://github.com/Izurii/modem-vivo-avancado/), com o objetivo de desbloquear o modo avançado do modem da Vivo modelo **Askey RTF8115VW**, permitindo ajustes em configurações de rede que normalmente são inacessíveis ao usuário comum.
 
-Firmware utilizado:
+Firmware do modem utilizado no teste:
 ```Shell
 BR_SV_g13.12_RTF_TEF001_V8.33_V022
 ```
@@ -29,7 +29,9 @@ modem-vivo/
 ├── index.js             # Script principal com automação Selenium
 ├── vars.js              # Configurações (IP, senha)
 ├── utils.js             # Funções auxiliares
-├── iniciar.bat          # Inicialização automática no Windows
+├── iniciar.bat          # Inicia direcionamento para iniciar.ps1 (modo facil)
+├── iniciar.ps1          # Inicialização automática no Windows
+├── package.json         # Contem informações importantes para Selenium WebDriver
 ├── chromedriver.exe     # Executável para Windows (baixar separadamente)
 ├── chromedriver         # Executável para Linux (baixar separadamente)
 ├── README.md            # Documentação do projeto
@@ -46,6 +48,10 @@ modem-vivo/
 ```Powershell
 irm https://raw.githubusercontent.com/edgardocorrea/modem-vivo/instalando/instalar.ps1 | iex
 ```
+
+Após todo o processo automático, será gerado um atalho na área de trabalho.
+Caso queira executar de modo automático novamente.
+
 
 ### Instalação manual
 
@@ -95,17 +101,15 @@ Acesse: https://googlechromelabs.github.io/chrome-for-testing/
 
 Substitua VERSION pela sua versão do Chrome:
 
-https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/
-VERSION/win64/chromedriver-win64.zip
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/VERSION/win64/chromedriver-win64.zip
 
 --> Exemplo para Chrome 142.0.7444.60:
 
-https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for- testing/142.0.7444.60/win64/chromedriver-win64.zip
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/142.0.7444.60/win64/chromedriver-win64.zip
 
 --> Exemplo para Chrome 140.0.7339.80:
 
-https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-
-testing/140.0.7339.80/win64/chrome driver-win64.zip
+https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/140.0.7339.80/win64/chromedriver-win64.zip
 
 Extrair o ChromeDriver
 
