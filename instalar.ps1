@@ -159,15 +159,15 @@ if (-not $args) {
             }
             
             # Se não encontrar exata, busca versão mais recente
-            $proximoVersion = $ChromeVersion.Split('.')[0]
-            Write-Step "Procurando ChromeDriver versão $proximoVersion.x.x.x (proximo)..."
+            $majorVersion = $ChromeVersion.Split('.')[0]
+            Write-Step "Procurando ChromeDriver versão $majorVersion.x.x.x (major)..."
             
-            $proximoMatches = $json.versions | Where-Object { $_.version -like "$proximoVersion.*" } | Sort-Object {
+            $majorMatches = $json.versions | Where-Object { $_.version -like "$majorVersion.*" } | Sort-Object {
                 [version]($_.version)
             } -Descending
             
-            if ($proximoMatches) {
-                $bestMatch = $proximoMatches | Select-Object -First 1
+            if ($majorMatches) {
+                $bestMatch = $majorMatches | Select-Object -First 1
                 $url = $bestMatch.downloads.chromedriver | Where-Object { $_.platform -eq "win64" } | Select-Object -ExpandProperty url -First 1
                 
                 if ($url) {
@@ -299,8 +299,8 @@ if (-not $args) {
     Write-Host "┌───────────────────────────────────────────────────────────────────┐" -ForegroundColor Green
     Write-Host "│ Navegador Detectado                                               │" -ForegroundColor Green
     Write-Host "├───────────────────────────────────────────────────────────────────┤" -ForegroundColor Green
-    Write-Host "│ Nome:    $($browser.Name.PadRight(45))            │" -ForegroundColor Green
-    Write-Host "│ Versão:  $($browser.Version.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Nome:    $($browser.Name.PadRight(45))             │" -ForegroundColor Green
+    Write-Host "│ Versão:  $($browser.Version.PadRight(45))             │" -ForegroundColor Green
     Write-Host "│ Caminho: $($browser.Path.PadRight(45)) │" -ForegroundColor Green
     Write-Host "└───────────────────────────────────────────────────────────────────┘" -ForegroundColor Green
     
@@ -482,12 +482,12 @@ if (-not $args) {
     
     Pop-Location
     
-    # ==================== CRIAR ATALHO ====================
+    # ==================== CRIAR ATALHOS ====================
     
-    Write-Header "Criando Atalho"
+    Write-Header "Criando Atalhos"
     
     $desktopPath = [Environment]::GetFolderPath("Desktop")
-    $shortcutPath = "$desktopPath\Modem VIVO.lnk"
+    $shortcutPath = "$desktopPath\Modem VIVO Unlock.lnk"
     
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($shortcutPath)
@@ -555,7 +555,7 @@ if (-not $args) {
     Write-Host "│ Como Usar                                               │" -ForegroundColor Yellow
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
     Write-Host "│ 1. Configure a senha no vars.js                         │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clique no atalho 'Modem VIVO Avançado                │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clique no atalho 'Modem VIVO Unlock'                 │" -ForegroundColor Yellow
     Write-Host "│ 3. O arquivo 'iniciar' verificará tudo automaticamente  │" -ForegroundColor Yellow
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
