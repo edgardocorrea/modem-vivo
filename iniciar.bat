@@ -7,7 +7,7 @@ REM ===========================================================
 cd /d "%~dp0"
 
 echo.
-echo Iniciando Modem VIVO - Modo Avançado...
+echo Iniciando Modem VIVO - Modo Avançado ...
 echo.
 
 REM Executa o PowerShell com parâmetros seguros
