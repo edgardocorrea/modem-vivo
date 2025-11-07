@@ -1,17 +1,13 @@
 @echo off
-REM ===========================================================
-REM Inicia o script PowerShell principal (iniciar.ps1)
-REM Compatível com UTF-8 e evita problemas de caminho/encoding
-REM ===========================================================
+REM Um meio simples para iniciar.ps1 
+REM Evita problemas de encoding UTF-8 com caracteres especiais
 
 cd /d "%~dp0"
 
-echo.
-echo Iniciando Modem VIVO - Modo Avançado ...
+echo Iniciando Modem VIVO Modo avançado...
 echo.
 
-REM Executa o PowerShell com parâmetros seguros
-powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%~dp0iniciar.ps1"
+REM Executa o script PowerShell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0iniciar.ps1"
 
-REM Retorna o código de saída do PowerShell
-exit /b %ERRORLEVEL%
+exit /b %errorlevel%
