@@ -561,5 +561,4 @@ if (-not $args) {
     Write-Host ""
     Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor White
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-    
 } @args
