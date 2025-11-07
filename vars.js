@@ -1,14 +1,9 @@
-﻿/**
- * Configurações do Modem VIVO
+/**
+ * Configurações do Modem VIVO 
  * 
  * IMPORTANTE:
- * Para alterar usuário/senha, edite os valores em texto claro
- * e a função messUserPass() em utils.js fará a conversão
+ * Para alterar usuário/senha, edite como esta no equipamento da VIVO
  * 
- * Padrão:
- * IP = "192.168.15.1";   // IP do modem (ip padrão)
- * user = "admin";         // Usuário (admin padrão)
- * pass = "sua-senha";     // Senha (se encontra etiquetado no aparelho da vivo)
  */
 
 // Proteção contra execução direta

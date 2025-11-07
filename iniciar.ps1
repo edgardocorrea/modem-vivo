@@ -1,4 +1,4 @@
-﻿# iniciar.ps1
+# iniciar.ps1
 # Script de inicialização do Modem VIVO Configuração Avançada
 # Verifica todas as dependências antes de executar
 
@@ -316,9 +316,12 @@ if ($exitCode -ne 0) {
     Write-ErrorMsg "A aplicação encerrou com erros."
     Write-Host ""
     Write-Host "Verifique as mensagens acima para mais detalhes." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor Cyan
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 } else {
     Write-Success "Aplicação encerrada normalmente."
+    Write-Host ""
+    Write-Host "Fechando em 3 segundos..." -ForegroundColor DarkGray
+    Start-Sleep -Seconds 3
 }
-
-Write-Host ""
-pause

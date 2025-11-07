@@ -1,4 +1,4 @@
-﻿# Projeto: modem-vivo Askey (RTF8115VW)
+# Projeto: modem-vivo Askey (RTF8115VW)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/edgardocorrea/modem-vivo)
 ![GitHub last commit](https://img.shields.io/github/last-commit/edgardocorrea/modem-vivo)
@@ -50,7 +50,6 @@ irm https://raw.githubusercontent.com/edgardocorrea/modem-vivo/instalando/instal
 ```
 
 Após todo o processo automático, será gerado um atalho na área de trabalho.
-Caso queira executar de modo automático novamente.
 
 
 ### Instalação manual
@@ -132,16 +131,20 @@ modem-vivo/
 
 Abra o terminal ( CMD ) na pasta do projeto e digite:
 
+```Powershell
 npm install
+```
 
 Isso instalará:
 
-1 selenium-webdriver - Automação do navegador
-2 chromedriver - Driver do Chrome
+1. selenium-webdriver - Automação do navegador
+2. chromedriver - Driver do Chrome
 
 Aguarde a instalação concluir. Deve aparecer algo como:
 
+```Shell
 added 15 packages, and audited 16 packages in 3s
+```
 
 
 ## Configuração de acesso (vars.js)
@@ -156,14 +159,17 @@ const senha = "sua-senha"; // substitua pela senha do seu modem
 
 A senha geralmente está na etiqueta na parte inferior do aparelho.
 
-## Verificação com iniciar.bat
+## Verificação com iniciar.ps1
 
-O script `iniciar.bat` realiza:
+O script `iniciar.ps1` realiza:
 
 - Verificação da senha no `vars.js`
 - Inicialização da automação
 
 Execute-o na pasta do projeto (`C:\modem-vivo`).
+
+Observação:
+O arquivo 'iniciar.bat' serve para executar 'iniciar.ps1' de modo a simplificar apenas. 
 
 ## Requisitos técnicos
 

@@ -1,7 +1,7 @@
 {
   "name": "modem-vivo",
   "version": "2.0.0",
-  "description": "Ferramenta de automação para desbloqueio de configurações avançadas do modem Askey RTF8115VW REV5 (modem VIVO)",
+  "description": "Ferramenta de automaÃ§Ã£o para desbloqueio de configuraÃ§Ãµes avanÃ§adas do modem Askey RTF8115VW REV5 (modem VIVO)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -16,7 +16,7 @@
     "vivo",
     "askey",
     "rtf8115vw",
-    "avançado",
+    "avanÃ§ado",
     "automatico",
     "selenium"
   ],
