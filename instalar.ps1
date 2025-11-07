@@ -491,9 +491,9 @@ if (-not $args) {
     
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($shortcutPath)
-	$Shortcut.TargetPath = "powershell.exe"
-	$Shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$INSTALL_DIR\iniciar.ps1`""
-    $Shortcut.WorkingDirectory = $INSTALL_DIR
+    $Shortcut.TargetPath = "$INSTALL_DIR\iniciar.bat"
+	$Shortcut.Arguments = ""
+	$Shortcut.WorkingDirectory = $INSTALL_DIR
 	$Shortcut.IconLocation = "%windir%\system32\shell32.dll,15"
     $Shortcut.Description = "Modem VIVO - Desbloqueio Automático"
     $Shortcut.Save()
