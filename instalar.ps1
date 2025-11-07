@@ -31,7 +31,7 @@ if (-not $args) {
     function Write-Header {
         param([string]$Text)
         Write-Host "`n╔════════════════════════════════════════════╗" -ForegroundColor Cyan
-        Write-Host "║  $Text" -ForegroundColor Cyan 
+        Write-Host "║  $Text" -ForegroundColor Cyan
         Write-Host "╚════════════════════════════════════════════╝`n" -ForegroundColor Cyan
     }
     
@@ -254,12 +254,12 @@ if (-not $args) {
     Write-Host ""
     Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║                                                            ║" -ForegroundColor Cyan
-    Write-Host "║   █▀▄▀█ █▀█ █▀▄ █▀▀ █▀▄▀█   █░█ █ █░█ █▀█                  ║" -ForegroundColor Cyan 
-    Write-Host "║   █░▀░█ █▄█ █▄▀ ██▄ █░▀░█   ▀▄▀ █ ▀▄▀ █▄█                  ║" -ForegroundColor Cyan
+    Write-Host "║   █▀▄▀█ █▀█ █▀▄ █▀▀ █▀▄▀█   █░█ █ █░█ █▀█                ║" -ForegroundColor Cyan
+    Write-Host "║   █░▀░█ █▄█ █▄▀ ██▄ █░▀░█   ▀▄▀ █ ▀▄▀ █▄█                ║" -ForegroundColor Cyan
     Write-Host "║                                                            ║" -ForegroundColor Cyan
-    Write-Host "║          Instalador Automático Inteligente                 ║" -ForegroundColor Cyan
+    Write-Host "║          Instalador Automático Inteligente                ║" -ForegroundColor Cyan
     Write-Host "║              Askey RTF8115VW REV5                          ║" -ForegroundColor Cyan
-    Write-Host "║                  by EdyOne                                 ║" -ForegroundColor Cyan
+    Write-Host "║                                                            ║" -ForegroundColor Cyan
     Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
     
@@ -296,13 +296,13 @@ if (-not $args) {
     }
     
     Write-Host ""
-    Write-Host "┌────────────────────────────────────────────────────────────────────────┐" -ForegroundColor Green
-    Write-Host "│ Navegador Detectado                                                    │" -ForegroundColor Green
-    Write-Host "├────────────────────────────────────────────────────────────────────────┤" -ForegroundColor Green
-    Write-Host "│ Nome:    $($browser.Name.PadRight(45))                 │" -ForegroundColor Green
-    Write-Host "│ Versão:  $($browser.Version.PadRight(45))                 │" -ForegroundColor Green
-    Write-Host "│ Caminho: $($browser.Path.PadRight(45))         │" -ForegroundColor Green
-    Write-Host "└────────────────────────────────────────────────────────────────────────┘" -ForegroundColor Green
+    Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Green
+    Write-Host "│ Navegador Detectado                                    │" -ForegroundColor Green
+    Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Green
+    Write-Host "│ Nome:    $($browser.Name.PadRight(45)) │" -ForegroundColor Green
+    Write-Host "│ Versão:  $($browser.Version.PadRight(45)) │" -ForegroundColor Green
+    Write-Host "│ Caminho: $($browser.Path.PadRight(45)) │" -ForegroundColor Green
+    Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Green
     
     # ==================== PASSO 2: INSTALAR NODE.JS ====================
     
@@ -372,12 +372,46 @@ if (-not $args) {
         
         if (Extract-ZipFile -ZipPath $repoZipPath -DestinationPath $tempExtract) {
             $subFolder = Get-ChildItem $tempExtract | Select-Object -First 1
-            Get-ChildItem $subFolder.FullName | Move-Item -Destination $INSTALL_DIR -Force
+            
+            # Copia TODOS os arquivos e subpastas
+            Get-ChildItem $subFolder.FullName -Recurse | ForEach-Object {
+                $targetPath = $_.FullName.Replace($subFolder.FullName, $INSTALL_DIR)
+                if ($_.PSIsContainer) {
+                    New-Item -ItemType Directory -Path $targetPath -Force | Out-Null
+                } else {
+                    Copy-Item $_.FullName -Destination $targetPath -Force
+                }
+            }
             
             Remove-Item $tempExtract -Recurse -Force
             Remove-Item $repoZipPath -Force
             
+            # VALIDAÇÃO: Verifica arquivos críticos
+            $requiredFiles = @("index.js", "vars.js", "utils.js", "package.json", "iniciar.bat")
+            $missingFiles = @()
+            
+            foreach ($file in $requiredFiles) {
+                if (-not (Test-Path "$INSTALL_DIR\$file")) {
+                    $missingFiles += $file
+                }
+            }
+            
+            if ($missingFiles.Count -gt 0) {
+                Write-ErrorMsg "Arquivos ausentes após download: $($missingFiles -join ', ')"
+                Write-Host ""
+                Write-Host "Possíveis causas:" -ForegroundColor Yellow
+                Write-Host "- Repositório GitHub incompleto" -ForegroundColor White
+                Write-Host "- Antivírus bloqueou arquivos" -ForegroundColor White
+                Write-Host "- Conexão instável durante download" -ForegroundColor White
+                Write-Host ""
+                Write-Host "Verifique o repositório em:" -ForegroundColor Cyan
+                Write-Host "https://github.com/$REPO_OWNER/$REPO_NAME" -ForegroundColor White
+                pause
+                return
+            }
+            
             Write-Success "Arquivos instalados em: $INSTALL_DIR"
+            Write-Step "Arquivos verificados: $($requiredFiles -join ', ')"
         }
     }
     else {
@@ -505,7 +539,7 @@ if (-not $args) {
     Write-Host ""
     Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Green
     Write-Host "║                                                            ║" -ForegroundColor Green
-    Write-Host "║          ✓ INSTALAÇÃO CONCLUÍDA COM SUCESSO!               ║" -ForegroundColor Green
+    Write-Host "║          ✓ INSTALAÇÃO CONCLUÍDA COM SUCESSO!              ║" -ForegroundColor Green
     Write-Host "║                                                            ║" -ForegroundColor Green
     Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor Green
     Write-Host ""
