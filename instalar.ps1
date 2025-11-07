@@ -250,7 +250,7 @@ if (-not $args) {
     
     # ==================== INÍCIO ====================
     
-    cls
+    #cls
     Write-Host ""
     Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║                                                            ║" -ForegroundColor Cyan
