@@ -494,7 +494,7 @@ if (-not $args) {
 	$Shortcut.TargetPath = "powershell.exe"
 	$Shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$INSTALL_DIR\iniciar.ps1`""
     $Shortcut.WorkingDirectory = $INSTALL_DIR
-    $Shortcut.IconLocation = "shell32.dll,104"
+    $Shortcut.IconLocation = "shell32.dll,16710"
     $Shortcut.Description = "Modem VIVO - Desbloqueio Automático"
     $Shortcut.Save()
     
