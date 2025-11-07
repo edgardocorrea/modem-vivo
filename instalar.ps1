@@ -299,9 +299,9 @@ if (-not $args) {
     Write-Host "┌───────────────────────────────────────────────────────────────────┐" -ForegroundColor Green
     Write-Host "│ Navegador Detectado                                               │" -ForegroundColor Green
     Write-Host "├───────────────────────────────────────────────────────────────────┤" -ForegroundColor Green
-    Write-Host "│ Nome:    $($browser.Name.PadRight(45))             │" -ForegroundColor Green
-    Write-Host "│ Versão:  $($browser.Version.PadRight(45))             │" -ForegroundColor Green
-    Write-Host "│ Caminho: $($browser.Path.PadRight(45)) │" -ForegroundColor Green
+    Write-Host "│ Nome:    $($browser.Name.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Versão:  $($browser.Version.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Caminho: $($browser.Path.PadRight(45))    │" -ForegroundColor Green
     Write-Host "└───────────────────────────────────────────────────────────────────┘" -ForegroundColor Green
     
     # ==================== PASSO 2: INSTALAR NODE.JS ====================
