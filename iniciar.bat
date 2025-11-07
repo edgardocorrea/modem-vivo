@@ -303,6 +303,7 @@ timeout /t 3 /nobreak >nul
 REM Inicia o aplicativo
 echo ════════════════════════════════════════════════════════════
 echo.
+REM IMPORTANTE: Sempre executar index.js, NUNCA vars.js diretamente!
 node index.js
 
 REM ==================== FINALIZAÇÃO ====================
