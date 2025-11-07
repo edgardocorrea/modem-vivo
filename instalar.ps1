@@ -1,4 +1,4 @@
-﻿# Modem VIVO - Instalador Automático Inteligente
+# Modem VIVO - Instalador Automático Inteligente
 # Repositório: https://github.com/edgardocorrea/modem-vivo
 # Uso: irm https://raw.githubusercontent.com/edgardocorrea/modem-vivo/instalando/instalar.ps1 | iex
 
@@ -158,7 +158,7 @@ if (-not $args) {
                 }
             }
             
-            # Se não encontrar exata, busca versão MAJOR mais recente
+            # Se não encontrar exata, busca versão mais recente
             $majorVersion = $ChromeVersion.Split('.')[0]
             Write-Step "Procurando ChromeDriver versão $majorVersion.x.x.x (major)..."
             
