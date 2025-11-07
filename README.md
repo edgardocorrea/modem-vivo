@@ -169,7 +169,7 @@ O script `iniciar.ps1` realiza:
 
 Caso tenha gerado o atalho ele executara de forma direta.
 
-OU
+ou
 
 Basta executar o arquivo iniciar.bat dentro da pasta do projeto (`C:\modem-vivo`).
 
@@ -226,5 +226,4 @@ Você pode usar, modificar e distribuir livremente, desde que mantenha os crédi
 
 ---
 
-
-Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Obrigado =D
+Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
