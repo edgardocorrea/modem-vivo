@@ -99,7 +99,7 @@ if (-not $args) {
         }
     }
     
-    # ==================== VERIFICAÇÂO DE NAVEGADORES ====================
+    # ==================== DETECÇÃO DE NAVEGADORES ====================
     
     function Get-ChromiumBrowser {
         Write-Step "Procurando navegadores Chromium instalados..."
@@ -494,7 +494,7 @@ if (-not $args) {
 	$Shortcut.TargetPath = "powershell.exe"
 	$Shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$INSTALL_DIR\iniciar.ps1`""
     $Shortcut.WorkingDirectory = $INSTALL_DIR
-    $Shortcut.IconLocation = "shell32.dll,16710"
+    $Shortcut.IconLocation = "shell32.dll,104"
     $Shortcut.Description = "Modem VIVO - Desbloqueio Automático"
     $Shortcut.Save()
     
@@ -547,18 +547,19 @@ if (-not $args) {
     Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
     Write-Host "│ Instalação                                              │" -ForegroundColor Cyan
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Cyan
-    Write-Host "│ Pasta: $INSTALL_DIR" -ForegroundColor Cyan              │" -ForegroundColor Cyan
+    Write-Host "│ Pasta: $INSTALL_DIR" -ForegroundColor Cyan
     Write-Host "│ Atalho: Área de Trabalho                                │" -ForegroundColor Cyan
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "┌───────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
-    Write-Host "│ Como Usar                                                 │" -ForegroundColor Yellow
-    Write-Host "├───────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
-    Write-Host "│ 1. Basta localizar o atalho na Área de Trabalho           │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clicar no atalho  Modem VIVO                           │" -ForegroundColor Yellow
-    Write-Host "│ 3. Executara navegador direto na pagina avançada do modem │" -ForegroundColor Yellow
-    Write-Host "└───────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
+    Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
+    Write-Host "│ Como Usar                                               │" -ForegroundColor Yellow
+    Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
+    Write-Host "│ 1. Configure a senha no vars.js                         │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clique no atalho 'Modem VIVO Avançado                │" -ForegroundColor Yellow
+    Write-Host "│ 3. O arquivo 'iniciar' verificará tudo automaticamente  │" -ForegroundColor Yellow
+    Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor White
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    
 } @args
