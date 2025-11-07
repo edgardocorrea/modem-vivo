@@ -494,7 +494,7 @@ if (-not $args) {
 	$Shortcut.TargetPath = "powershell.exe"
 	$Shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$INSTALL_DIR\iniciar.ps1`""
     $Shortcut.WorkingDirectory = $INSTALL_DIR
-	$Shortcut.IconLocation = "%windir%\system32\imageres.dll,106"
+	$Shortcut.IconLocation = "%windir%\system32\shell32.dll,15"
     $Shortcut.Description = "Modem VIVO - Desbloqueio Automático"
     $Shortcut.Save()
 
@@ -555,7 +555,7 @@ if (-not $args) {
     Write-Host "│ Como Usar                                               │" -ForegroundColor Yellow
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
     Write-Host "│ 1. Configure a senha no vars.js                         │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clique no atalho 'Modem VIVO Unlock'                 │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clique no atalho 'Modem VIVO'                        │" -ForegroundColor Yellow
     Write-Host "│ 3. O arquivo 'iniciar' verificará tudo automaticamente  │" -ForegroundColor Yellow
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
