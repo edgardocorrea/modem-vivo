@@ -1,0 +1,37 @@
+{
+  "name": "modem-vivo",
+  "version": "2.0.0",
+  "description": "Ferramenta de automação para desbloqueio de configurações avançadas do modem Askey RTF8115VW REV5 (VIVO Fibra)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgardocorrea/modem-vivo.git"
+  },
+  "keywords": [
+    "modem",
+    "vivo",
+    "askey",
+    "rtf8115vw",
+    "unlock",
+    "automation",
+    "selenium"
+  ],
+  "author": "Edgardo Correa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edgardocorrea/modem-vivo/issues"
+  },
+  "homepage": "https://github.com/edgardocorrea/modem-vivo#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.26.1",
+    "chromedriver": "^131.0.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
