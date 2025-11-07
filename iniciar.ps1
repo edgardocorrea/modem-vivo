@@ -1,5 +1,5 @@
 # iniciar.ps1
-# Script de inicialização do Modem VIVO Unlock Tool
+# Script de inicialização do Modem VIVO Configuração Avançada
 # Verifica todas as dependências antes de executar
 
 $ErrorActionPreference = 'Stop'
@@ -41,11 +41,11 @@ Clear-Host
 Write-Host ""
 Write-ColorBox "╔════════════════════════════════════════════════════════════╗"
 Write-ColorBox "║                                                            ║"
-Write-ColorBox "║   █▀▄▀█ █▀█ █▀▄ █▀▀ █▀▄▀█   █░█ █ █░█ █▀█                ║"
-Write-ColorBox "║   █░▀░█ █▄█ █▄▀ ██▄ █░▀░█   ▀▄▀ █ ▀▄▀ █▄█                ║"
+Write-ColorBox "║   █▀▄▀█ █▀█ █▀▄ █▀▀ █▀▄▀█   █░█ █ █░█ █▀█                  ║"
+Write-ColorBox "║   █░▀░█ █▄█ █▄▀ ██▄ █░▀░█   ▀▄▀ █ ▀▄▀ █▄█                  ║"
 Write-ColorBox "║                                                            ║"
-Write-ColorBox "║              Modem VIVO - Unlock Tool                      ║"
-Write-ColorBox "║          Askey RTF8115VW REV5 - Automação                  ║"
+Write-ColorBox "║              Configuração Avançada                         ║"
+Write-ColorBox "║                    By  EdyOne                              ║"
 Write-ColorBox "║                                                            ║"
 Write-ColorBox "╚════════════════════════════════════════════════════════════╝"
 Write-Host ""
@@ -174,19 +174,19 @@ if ($varsContent -match 'const pass\s*=\s*"([^"]+)"') {
 
 Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
 Write-Host "│ Configurações Atuais                                    │" -ForegroundColor Cyan
-Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Cyan
+Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
 Write-Host "│ IP do modem: $ipVal" -ForegroundColor Cyan
 Write-Host "│ Usuário:     $userVal" -ForegroundColor Cyan
 Write-Host "│ Senha:       $passVal" -ForegroundColor Cyan
-Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
+Write-Host "└─────────────────────────────────────────────────────────" -ForegroundColor Cyan
 Write-Host ""
 
 # Verifica senhas padrão
 if ($passVal -match "sua-senha" -or $passVal -match "SUA_SENHA_AQUI") {
     Write-Host ""
-    Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Red
-    Write-Host "║  ⚠  ATENÇÃO: SENHA PADRÃO DETECTADA                        ║" -ForegroundColor Red
-    Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor Red
+    Write-Host "╔═════════════════════════════════════════════════════════╗" -ForegroundColor Red
+    Write-Host "║  (!) ATENÇÃO: SENHA PADRÃO DETECTADA  (!)               ║" -ForegroundColor Red
+    Write-Host "╚═════════════════════════════════════════════════════════╝" -ForegroundColor Red
     Write-Host ""
     Write-Host "A senha ainda está configurada como padrão!" -ForegroundColor Yellow
     Write-Host ""
@@ -196,8 +196,8 @@ if ($passVal -match "sua-senha" -or $passVal -match "SUA_SENHA_AQUI") {
     Write-Host "│ Como configurar:                                        │" -ForegroundColor Yellow
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
     Write-Host "│ 1. Abra o arquivo: vars.js                              │" -ForegroundColor Yellow
-    Write-Host "│ 2. Localize a linha: const pass = `"sua-senha`";          │" -ForegroundColor Yellow
-    Write-Host "│ 3. Substitua por: const pass = `"SUA_SENHA_REAL`";       │" -ForegroundColor Yellow
+    Write-Host "│ 2. Localize a linha: const pass = `"sua-senha`";        │" -ForegroundColor Yellow
+    Write-Host "│ 3. Substitua por: const pass = `"SUA_SENHA_MODEM`";     │" -ForegroundColor Yellow
     Write-Host "│ 4. A senha está na etiqueta na parte de baixo do modem  │" -ForegroundColor Yellow
     Write-Host "│ 5. Salve o arquivo e execute este script novamente      │" -ForegroundColor Yellow
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
@@ -221,9 +221,9 @@ Write-Host ""
 
 # ==================== TESTE DE CONECTIVIDADE ====================
 
-Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
-Write-Host "│ Testando conectividade com o modem...                  │" -ForegroundColor Cyan
-Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
+Write-Host "┌────────────────────────────────────────────────┐" -ForegroundColor Cyan
+Write-Host "│ Testando conectividade com o modem...          │" -ForegroundColor Cyan
+Write-Host "└────────────────────────────────────────────────┘" -ForegroundColor Cyan
 Write-Host ""
 
 $pingResult = Test-Connection -ComputerName $ipVal -Count 1 -Quiet -ErrorAction SilentlyContinue
@@ -252,9 +252,9 @@ Write-Host ""
 
 # ==================== VERIFICAÇÃO DE DEPENDÊNCIAS ====================
 
-Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
-Write-Host "│ Verificando dependências do Node.js...                 │" -ForegroundColor Cyan
-Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
+Write-Host "┌────────────────────────────────────────────────┐" -ForegroundColor Cyan
+Write-Host "│ Verificando dependências do Node.js...         │" -ForegroundColor Cyan
+Write-Host "└────────────────────────────────────────────────┘" -ForegroundColor Cyan
 Write-Host ""
 
 if (-not (Test-Path "node_modules")) {
@@ -284,7 +284,7 @@ Write-Host ""
 
 Write-Host ""
 Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor Green
-Write-Host "║  ✓ TODAS AS VERIFICAÇÕES CONCLUÍDAS COM SUCESSO           ║" -ForegroundColor Green
+Write-Host "║  (OK) TODAS AS VERIFICAÇÕES CONCLUÍDAS COM SUCESSO         ║" -ForegroundColor Green
 Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor Green
 Write-Host ""
 Write-Host "Iniciando aplicação..." -ForegroundColor Yellow
@@ -316,9 +316,12 @@ if ($exitCode -ne 0) {
     Write-ErrorMsg "A aplicação encerrou com erros."
     Write-Host ""
     Write-Host "Verifique as mensagens acima para mais detalhes." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor Cyan
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 } else {
     Write-Success "Aplicação encerrada normalmente."
+    Write-Host ""
+    Write-Host "Fechando em 3 segundos..." -ForegroundColor DarkGray
+    Start-Sleep -Seconds 3
 }
-
-Write-Host ""
-pause
