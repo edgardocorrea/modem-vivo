@@ -264,8 +264,18 @@ if (-not $args) {
     Write-Host ""
     
     # Verifica privilégios de admin
-    if (-not (Test-AdminRights)) {
-        Write-ErrorMsg "Este script precisa ser executado como Administrador!"
+try {
+    $isAdmin = Test-AdminRights
+} catch {
+    Write-Host "[DEBUG] Erro ao testar privilégios de administrador:" -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red
+    pause
+    return
+}
+
+if (-not $isAdmin) {
+    Write-ErrorMsg "Este script precisa ser executado como Administrador!"
+
         Write-Host ""
         Write-Host "Como executar como Administrador:" -ForegroundColor Yellow
         Write-Host "1. Clique [ botão Windows + X ] " -ForegroundColor White
