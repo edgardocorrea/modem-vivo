@@ -99,7 +99,7 @@ if (-not $args) {
         }
     }
     
-    # ==================== DETECÇÃO DE NAVEGADORES ====================
+    # ==================== VERIFICAÇÂO DE NAVEGADORES ====================
     
     function Get-ChromiumBrowser {
         Write-Step "Procurando navegadores Chromium instalados..."
@@ -159,15 +159,15 @@ if (-not $args) {
             }
             
             # Se não encontrar exata, busca versão mais recente
-            $majorVersion = $ChromeVersion.Split('.')[0]
-            Write-Step "Procurando ChromeDriver versão $majorVersion.x.x.x (major)..."
+            $proximoVersion = $ChromeVersion.Split('.')[0]
+            Write-Step "Procurando ChromeDriver versão $proximoVersion.x.x.x (proximo)..."
             
-            $majorMatches = $json.versions | Where-Object { $_.version -like "$majorVersion.*" } | Sort-Object {
+            $proximoMatches = $json.versions | Where-Object { $_.version -like "$proximoVersion.*" } | Sort-Object {
                 [version]($_.version)
             } -Descending
             
-            if ($majorMatches) {
-                $bestMatch = $majorMatches | Select-Object -First 1
+            if ($proximoMatches) {
+                $bestMatch = $proximoMatches | Select-Object -First 1
                 $url = $bestMatch.downloads.chromedriver | Where-Object { $_.platform -eq "win64" } | Select-Object -ExpandProperty url -First 1
                 
                 if ($url) {
@@ -299,9 +299,9 @@ if (-not $args) {
     Write-Host "┌───────────────────────────────────────────────────────────────────┐" -ForegroundColor Green
     Write-Host "│ Navegador Detectado                                               │" -ForegroundColor Green
     Write-Host "├───────────────────────────────────────────────────────────────────┤" -ForegroundColor Green
-    Write-Host "│ Nome:    $($browser.Name.PadRight(45))             │" -ForegroundColor Green
-    Write-Host "│ Versão:  $($browser.Version.PadRight(45))             │" -ForegroundColor Green
-    Write-Host "│ Caminho: $($browser.Path.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Nome:    $($browser.Name.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Versão:  $($browser.Version.PadRight(45))            │" -ForegroundColor Green
+    Write-Host "│ Caminho: $($browser.Path.PadRight(45)) │" -ForegroundColor Green
     Write-Host "└───────────────────────────────────────────────────────────────────┘" -ForegroundColor Green
     
     # ==================== PASSO 2: INSTALAR NODE.JS ====================
@@ -482,12 +482,12 @@ if (-not $args) {
     
     Pop-Location
     
-    # ==================== CRIAR ATALHOS ====================
+    # ==================== CRIAR ATALHO ====================
     
-    Write-Header "Criando Atalhos"
+    Write-Header "Criando Atalho"
     
     $desktopPath = [Environment]::GetFolderPath("Desktop")
-    $shortcutPath = "$desktopPath\Modem VIVO Unlock.lnk"
+    $shortcutPath = "$desktopPath\Modem VIVO.lnk"
     
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut($shortcutPath)
@@ -547,17 +547,17 @@ if (-not $args) {
     Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
     Write-Host "│ Instalação                                              │" -ForegroundColor Cyan
     Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Cyan
-    Write-Host "│ Pasta: $INSTALL_DIR" -ForegroundColor Cyan
+    Write-Host "│ Pasta: $INSTALL_DIR" -ForegroundColor Cyan              │" -ForegroundColor Cyan
     Write-Host "│ Atalho: Área de Trabalho                                │" -ForegroundColor Cyan
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
-    Write-Host "│ Como Usar                                               │" -ForegroundColor Yellow
-    Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
-    Write-Host "│ 1. Configure a senha no vars.js                         │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clique no atalho 'Modem VIVO Unlock'                 │" -ForegroundColor Yellow
-    Write-Host "│ 3. O arquivo 'iniciar' verificará tudo automaticamente  │" -ForegroundColor Yellow
-    Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
+    Write-Host "┌───────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
+    Write-Host "│ Como Usar                                                 │" -ForegroundColor Yellow
+    Write-Host "├───────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
+    Write-Host "│ 1. Basta localizar o atalho na Área de Trabalho           │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clicar no atalho 'Modem VIVO'                          │" -ForegroundColor Yellow
+    Write-Host "│ 3. Executara navegador direto na pagina avançada do modem │" -ForegroundColor Yellow
+    Write-Host "└───────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor White
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
