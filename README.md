@@ -165,11 +165,17 @@ O script `iniciar.ps1` realiza:
 
 - Verificação da senha no `vars.js`
 - Inicialização da automação
+- Não feche a janela ja que a função e de manter a pagina avançada desbloqueada.
 
-Execute-o na pasta do projeto (`C:\modem-vivo`).
+Caso tenha gerado o atalho ele executara de forma direta.
+
+OU
+
+Basta executar o arquivo iniciar.bat dentro da pasta do projeto (`C:\modem-vivo`).
 
 Observação:
 O arquivo 'iniciar.bat' serve para executar 'iniciar.ps1' de modo a simplificar apenas. 
+
 
 ## Requisitos técnicos
 
@@ -220,5 +226,4 @@ Você pode usar, modificar e distribuir livremente, desde que mantenha os crédi
 
 ---
 
-⭐ Se este projeto foi útil, considere dar uma estrela no GitHub!
-
+Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
