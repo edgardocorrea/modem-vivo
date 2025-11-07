@@ -226,4 +226,5 @@ Você pode usar, modificar e distribuir livremente, desde que mantenha os crédi
 
 ---
 
-Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
+
+Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Obrigado =D
