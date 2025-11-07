@@ -99,7 +99,7 @@ if (-not $args) {
         }
     }
     
-    # ==================== VERIFICAÇÂO DE NAVEGADORES ====================
+    # ==================== DETECÇÃO DE NAVEGADORES ====================
     
     function Get-ChromiumBrowser {
         Write-Step "Procurando navegadores Chromium instalados..."
@@ -140,7 +140,7 @@ if (-not $args) {
     function Get-ChromeDriverUrl {
         param([string]$ChromeVersion)
         
-        Write-Step "Consultando API do Chrome para teste..."
+        Write-Step "Consultando API do Chrome for Testing..."
         
         try {
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -299,9 +299,9 @@ if (-not $args) {
     Write-Host "┌───────────────────────────────────────────────────────────────────┐" -ForegroundColor Green
     Write-Host "│ Navegador Detectado                                               │" -ForegroundColor Green
     Write-Host "├───────────────────────────────────────────────────────────────────┤" -ForegroundColor Green
-    Write-Host "│ Nome:    $($browser.Name.PadRight(45))            │" -ForegroundColor Green
-    Write-Host "│ Versão:  $($browser.Version.PadRight(45))            │" -ForegroundColor Green
-    Write-Host "│ Caminho: $($browser.Path.PadRight(45))    │" -ForegroundColor Green
+    Write-Host "│ Nome:    $($browser.Name.PadRight(45))             │" -ForegroundColor Green
+    Write-Host "│ Versão:  $($browser.Version.PadRight(45))             │" -ForegroundColor Green
+    Write-Host "│ Caminho: $($browser.Path.PadRight(45)) │" -ForegroundColor Green
     Write-Host "└───────────────────────────────────────────────────────────────────┘" -ForegroundColor Green
     
     # ==================== PASSO 2: INSTALAR NODE.JS ====================
@@ -482,9 +482,9 @@ if (-not $args) {
     
     Pop-Location
     
-    # ==================== CRIAR ATALHO ====================
+    # ==================== CRIAR ATALHOS ====================
     
-    Write-Header "Criando Atalho"
+    Write-Header "Criando Atalhos"
     
     $desktopPath = [Environment]::GetFolderPath("Desktop")
     $shortcutPath = "$desktopPath\Modem VIVO.lnk"
@@ -494,10 +494,10 @@ if (-not $args) {
 	$Shortcut.TargetPath = "powershell.exe"
 	$Shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -File `"$INSTALL_DIR\iniciar.ps1`""
     $Shortcut.WorkingDirectory = $INSTALL_DIR
-    $Shortcut.IconLocation = "shell32.dll,16710"
+	$Shortcut.IconLocation = "%windir%\system32\imageres.dll,106"
     $Shortcut.Description = "Modem VIVO - Desbloqueio Automático"
     $Shortcut.Save()
-    
+
     Write-Success "Atalho criado na Área de Trabalho"
     
     # ==================== CONFIGURAR CREDENCIAIS ====================
@@ -551,13 +551,13 @@ if (-not $args) {
     Write-Host "│ Atalho: Área de Trabalho                                │" -ForegroundColor Cyan
     Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "┌───────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
-    Write-Host "│ Como Usar                                                 │" -ForegroundColor Yellow
-    Write-Host "├───────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
-    Write-Host "│ 1. Basta localizar o atalho na Área de Trabalho           │" -ForegroundColor Yellow
-    Write-Host "│ 2. Clicar no atalho 'Modem VIVO'                          │" -ForegroundColor Yellow
-    Write-Host "│ 3. Executara navegador direto na pagina avançada do modem │" -ForegroundColor Yellow
-    Write-Host "└───────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
+    Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Yellow
+    Write-Host "│ Como Usar                                               │" -ForegroundColor Yellow
+    Write-Host "├─────────────────────────────────────────────────────────┤" -ForegroundColor Yellow
+    Write-Host "│ 1. Configure a senha no vars.js                         │" -ForegroundColor Yellow
+    Write-Host "│ 2. Clique no atalho 'Modem VIVO Unlock'                 │" -ForegroundColor Yellow
+    Write-Host "│ 3. O arquivo 'iniciar' verificará tudo automaticamente  │" -ForegroundColor Yellow
+    Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "Pressione qualquer tecla para sair..." -ForegroundColor White
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
