@@ -113,9 +113,9 @@ npm install
 Antes da execução, é necessário configurar as credenciais de acesso ao modem no arquivo `vars.js`:
 
 ```Javascript
-const ip = "192.168.15.1";        // Endereço IP padrão do modem
-const usuario = "admin";           // Nome de usuário padrão
-const senha = "sua-senha";   // Substitua pela senha do seu modem
+const ip = "192.168.15.1";      // Endereço IP padrão do modem
+const usuario = "admin";        // Nome de usuário padrão
+const senha = "sua-senha";      // Substitua pela senha do seu modem
 ```
 
 > **Nota:** A senha de administrador geralmente está disponível na etiqueta de informações do equipamento.
@@ -209,6 +209,7 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 
 Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
 ```
+
 
 
 
