@@ -209,7 +209,3 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 
 Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
 ```
-
-
-
-
