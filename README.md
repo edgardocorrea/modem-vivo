@@ -167,6 +167,10 @@ Caso você não deseje mais utilizar a ferramenta, dentro do diretório consta u
 
 ##  Registro de Alterações
 
+### v1.1 (2025)
+-   Corrigido alguns bugs.
+-   Adicionado arquivo de desinstalar para remoção do projeto.
+
 ### v1.0.10 (2025)
 -   Implementação de detecção automática de encerramento da janela do navegador.
 -   Revisão e aprimoramento da documentação técnica.
@@ -205,4 +209,5 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 
 Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
 ```
+
 
