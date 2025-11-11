@@ -36,8 +36,10 @@ modem-vivo/
 ├── index.js             # Módulo principal de automação Selenium
 ├── vars.js              # Arquivo de configuração (IP, credenciais)
 ├── utils.js             # Biblioteca de funções utilitárias
-├── iniciar.bat          # Atalho para execução do script PowerShell (Windows)
-├── iniciar.ps1          # Script de inicialização e automação (Windows)
+├── iniciar.bat          # Atalho para execução do script PowerShell
+├── iniciar.ps1          # Script de inicialização e automação
+├── desinstalar.bat      # Atalho para o script de desinstalação
+├── desinstalar.ps1      # Script de desinstalação completa
 ├── package.json         # Manifesto do projeto com dependências (Node.js)
 ├── chromedriver.exe     # Binário do ChromeDriver para Windows
 ├── chromedriver         # Binário do ChromeDriver para Linux
@@ -203,3 +205,4 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 
 Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
 ```
+
