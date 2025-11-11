@@ -339,6 +339,8 @@ if (-not $args) {
             $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
             
             Write-Success "Node.js instalado com sucesso!"
+			# CRIAR ARQUIVO MARCADOR
+			$nodeWasInstalledByUs = $true
         }
         else {
             Write-ErrorMsg "Falha ao instalar Node.js"
@@ -533,6 +535,26 @@ if (-not $args) {
         Push-Location $INSTALL_DIR
         & "$INSTALL_DIR\iniciar.bat"
         Pop-Location
+    }
+
+    # ==================== CRIAR ARQUIVO MARCADOR ====================
+    
+    Write-Step "Criando marcador de instalação..."
+    
+    $installMarker = @{
+        NodeJsInstalled = if ($nodeWasInstalledByUs) { $true } else { $false }
+        GitInstalled = $false  # Projeto não usa Git no momento
+        InstallDate = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        InstallerVersion = "2.0.0"
+        ChromeVersion = $browser.Version
+        ChromeDriverVersion = if ($chromeDriverInfo) { $chromeDriverInfo.Version } else { "unknown" }
+    }
+    
+    try {
+        $installMarker | ConvertTo-Json | Out-File "$INSTALL_DIR\.install_marker" -Encoding UTF8 -Force
+        Write-Success "Marcador de instalação criado"
+    } catch {
+        Write-Warning "Não foi possível criar marcador: $_"
     }
     
     # ==================== FINALIZAÇÃO ====================
