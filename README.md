@@ -184,6 +184,19 @@ Caso você não deseje mais utilizar a ferramenta, dentro do diretório consta u
 
 ---
 
+## Autor
+
+Este projeto foi desenvolvido com dedição por **EdyOne**.
+
+- **GitHub**: [edgardocorrea](https://github.com/edgardocorrea)
+- **Repositório**: [edgardocorrea/modem-vivo](https://github.com/edgardocorrea/modem-vivo)
+
+> *"A cortesia tem um grande poder, e não custa nada."* - Samuel Smiles
+
+---
+Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
+---
+
 ##  Licença
 
 Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você está livre para utilizar, modificar e distribuir o software, em conformidade com os termos estabelecidos.
@@ -197,14 +210,5 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 -   [Documentação Oficial Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/)
 -   [Projeto de Referência - Izurii](https://github.com/Izurii/modem-vivo-avancado/)
 
----
 
-## 👨‍💻 Autor
 
-**EdyOne**
-
--   **GitHub:** [edgardocorrea](https://github.com/edgardocorrea)
-
----
-
-Se este projeto te ajudou de alguma maneira, que tal deixar uma ⭐ no GitHub. Grato =D
