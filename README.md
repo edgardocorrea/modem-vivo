@@ -40,9 +40,8 @@ modem-vivo/
 ├── iniciar.ps1          # Script de inicialização e automação
 ├── desinstalar.bat      # Atalho para o script de desinstalação
 ├── desinstalar.ps1      # Script de desinstalação completa
-├── package.json         # Manifesto do projeto com dependências (Node.js)
-├── chromedriver.exe     # Binário do ChromeDriver para Windows
-├── chromedriver         # Binário do ChromeDriver para Linux
+├── package.json         # Projeto com dependências (Node.js)
+├── chromedriver.exe     # Arquivo do ChromeDriver para Windows
 ├── README.md            # Documentação técnica do projeto
 └── LICENSE              # Termos da licença MIT
 ```
@@ -209,6 +208,7 @@ Este projeto é distribuído sob os termos da [Licença MIT](LICENSE). Você est
 -   [Node.js](https://nodejs.org/)
 -   [Documentação Oficial Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/)
 -   [Projeto de Referência - Izurii](https://github.com/Izurii/modem-vivo-avancado/)
+
 
 
 
