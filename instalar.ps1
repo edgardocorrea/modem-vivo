@@ -539,23 +539,52 @@ if (-not $args) {
 
     # ==================== CRIAR ARQUIVO MARCADOR ====================
     
-    Write-Step "Criando marcador de instalação..."
+
+Write-Host ""
+Write-Host "┌────────────────────────────────────────────────────────────┐" -ForegroundColor Cyan
+Write-Host "│ Criando marcador de instalação...                         │" -ForegroundColor Cyan
+Write-Host "└────────────────────────────────────────────────────────────┘" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Step "Preparando dados do marcador..."
+
+# Garante que a pasta de instalação existe antes de tentar escrever nela
+if (-not (Test-Path $INSTALL_DIR)) {
+    Write-Warning "Pasta de instalação não encontrada. Criando: $INSTALL_DIR"
+    New-Item -ItemType Directory -Path $INSTALL_DIR -Force | Out-Null
+}
+
+$installMarker = @{
+    NodeJsInstalled = if ($nodeWasInstalledByUs) { $true } else { $false }
+    GitInstalled = $false
+    InstallDate = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    InstallerVersion = "2.0.0"
+    ChromeVersion = if ($browser) { $browser.VersionInfo.FileVersion } else { "unknown" }
+    ChromeDriverVersion = if ($chromeDriverInfo) { $chromeDriverInfo.Version } else { "unknown" }
+}
+
+$markerPath = "$INSTALL_DIR\.install_marker"
+
+try {
+    # Converte o objeto para JSON e salva no arquivo
+    $installMarker | ConvertTo-Json | Out-File -FilePath $markerPath -Encoding UTF8 -Force
+    Write-Success "Marcador de instalação criado com sucesso em: $markerPath"
     
-    $installMarker = @{
-        NodeJsInstalled = if ($nodeWasInstalledByUs) { $true } else { $false }
-        GitInstalled = $false  # Projeto não usa Git no momento
-        InstallDate = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-        InstallerVersion = "2.0.0"
-        ChromeVersion = $browser.Version
-        ChromeDriverVersion = if ($chromeDriverInfo) { $chromeDriverInfo.Version } else { "unknown" }
+    # Verificação opcional para garantir que o arquivo foi criado
+    if (Test-Path $markerPath) {
+        Write-Host "Conteúdo do marcador:" -ForegroundColor Gray
+        Get-Content $markerPath | Write-Host -ForegroundColor Gray
+    } else {
+        # Isso não deveria acontecer, mas é uma verificação extra
+        throw "O arquivo de marcador não foi encontrado após a criação."
     }
-    
-    try {
-        $installMarker | ConvertTo-Json | Out-File "$INSTALL_DIR\.install_marker" -Encoding UTF8 -Force
-        Write-Success "Marcador de instalação criado"
-    } catch {
-        Write-Warning "Não foi possível criar marcador: $_"
-    }
+} catch {
+    Write-ErrorMsg "FALHA CRÍTICA ao criar o marcador de instalação: $_"
+    Write-Host "  Caminho do arquivo: $markerPath" -ForegroundColor Red
+    Write-Host "  Verifique as permissões da pasta: $INSTALL_DIR" -ForegroundColor Yellow
+    Write-Host "  A desinstalação automática pode não funcionar corretamente." -ForegroundColor Red
+    # Não usar 'throw' aqui para não interromper a instalação, apenas avisar.
+}
     
     # ==================== FINALIZAÇÃO ====================
     
